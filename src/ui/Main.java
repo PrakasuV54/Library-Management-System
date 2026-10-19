@@ -77,6 +77,9 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("Exiting Library Management System. Goodbye!");
+                    if (bookTransactionService != null && bookTransactionService.getOverdueFineSchedulerService() != null) {
+                        bookTransactionService.getOverdueFineSchedulerService().stopScheduler();
+                    }
                     return;
                 default:
                     System.out.println("Invalid Choice");

@@ -110,6 +110,9 @@ public class OverdueFineSchedulerService {
         }
 
         for (Transaction transaction : transactions.findAll()) {
+            if (Thread.currentThread().isInterrupted()) {
+                break;
+            }
             if (transaction == null) {
                 continue;
             }
